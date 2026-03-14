@@ -1,0 +1,73 @@
+{
+  "name": "banklyze",
+  "version": "1.0.0",
+  "description": "Official TypeScript SDK for the Banklyze API — AI-powered MCA underwriting platform",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    },
+    "./webhooks": {
+      "import": {
+        "types": "./dist/esm/webhooks.d.ts",
+        "default": "./dist/esm/webhooks.js"
+      },
+      "require": {
+        "types": "./dist/cjs/webhooks.d.cts",
+        "default": "./dist/cjs/webhooks.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "homepage": "https://docs.banklyze.com/sdk/typescript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thornebridge/banklyze",
+    "directory": "sdk-ts"
+  },
+  "bugs": {
+    "url": "https://github.com/thornebridge/banklyze/issues"
+  },
+  "keywords": [
+    "banklyze",
+    "mca",
+    "underwriting",
+    "bank-statement",
+    "fintech",
+    "api",
+    "sdk"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "test:ci": "vitest run",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}

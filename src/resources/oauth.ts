@@ -1,0 +1,34 @@
+/**
+ * OAuth resource — client credentials token endpoint.
+ */
+
+import type { Banklyze, RequestOptions } from "../client.js";
+
+export class OAuthResource {
+  _client: Banklyze;
+
+  constructor(client: Banklyze) {
+    this._client = client;
+  }
+
+  private _request<T = unknown>(
+    method: string,
+    path: string,
+    options?: RequestOptions,
+  ): Promise<T> {
+    return this._client._request<T>(method, path, options);
+  }
+
+  async createToken(options: {
+    client_id: string;
+    client_secret: string;
+  }): Promise<Record<string, unknown>> {
+    const creds = Buffer.from(
+      `${options.client_id}:${options.client_secret}`,
+    ).toString("base64");
+    return this._request<Record<string, unknown>>("POST", "/v1/oauth/token", {
+      body: new URLSearchParams({ grant_type: "client_credentials" }),
+      headers: { Authorization: `Basic ${creds}` },
+    });
+  }
+}
