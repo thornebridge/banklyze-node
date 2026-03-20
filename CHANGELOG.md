@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-03-20
+
+### Added
+
+- **HealthSummary** — documented `factors` dict structure: up to 12 sub-factors with `score`, `max`, `weight`, and `detail` keys
+- **McaSummary** — added `mca_credit_score` (Layer 1 composite, bank-statement-only) and `credit_grade` fields
+- **Recommendation** — added `hypothetical_cfcr` and `hypothetical_dscr` fields (projected ratios for declined deals), `mca_credit_score` field
+
+### Changed
+
+- Health score now uses 12 sub-factors aligned with underwriting Layer 1 (was 6)
+- CFCR and DSCR are now populated on declined deals (previously null)
+- MCA credit score isolated to Layer 1 — derived solely from bank statement data
+
 ## [1.0.0] - 2026-03-13
 
 ### Added

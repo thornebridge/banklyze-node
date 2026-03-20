@@ -2,7 +2,14 @@
  * Underwriting recommendation response types.
  */
 
-/** Full underwriting recommendation for a deal. */
+/**
+ * Full underwriting recommendation for a deal.
+ *
+ * For declined deals, `hypothetical_cfcr` and `hypothetical_dscr` contain
+ * the projected ratios if the advance were funded — useful for near-miss
+ * analysis. `mca_credit_score` is the Layer 1 composite score derived solely
+ * from bank statement data.
+ */
 export interface Recommendation {
   id: number;
   deal_id: number;
@@ -34,6 +41,9 @@ export interface Recommendation {
   forecast: Record<string, unknown> | null;
   cash_flow_coverage_ratio: number | null;
   dscr: number | null;
+  hypothetical_cfcr: number | null;
+  hypothetical_dscr: number | null;
+  mca_credit_score: number | null;
   ruleset_id: number | null;
   ruleset_name: string | null;
   created_at: string | null;

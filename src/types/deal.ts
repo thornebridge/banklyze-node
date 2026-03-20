@@ -69,6 +69,17 @@ export interface LargeDeposit {
   [key: string]: unknown;
 }
 
+/**
+ * Health score summary with sub-factor breakdown.
+ *
+ * The `factors` dict contains up to 12 sub-factors, each with `score`, `max`,
+ * `weight`, and `detail` keys. Seven core sub-factors are always present
+ * (revenue, adb_stability, nsf_cleanliness, negative_days, deposit_consistency,
+ * screening_flags, deposit_quality). Five optional sub-factors (revenue_trend,
+ * stacking, volatility, debt_service, eom_trend) appear when pipeline data is
+ * available. Weights are normalized over present sub-factors so the score is
+ * always 0–100.
+ */
 export interface HealthSummary {
   health_score: number | null;
   health_grade: string | null;
@@ -143,6 +154,12 @@ export interface SourceSummary {
   [key: string]: unknown;
 }
 
+/**
+ * MCA position and cash-flow analysis.
+ *
+ * `mca_credit_score` is the Layer 1 composite score derived solely from bank
+ * statement data. It is **not** a bureau credit score.
+ */
 export interface McaSummary {
   positions_detected: number | null;
   total_daily_obligation: number | null;
@@ -153,6 +170,8 @@ export interface McaSummary {
   propping_risk: number | null;
   avg_daily_deposit: number | null;
   deposit_days_pct: number | null;
+  mca_credit_score: number | null;
+  credit_grade: string | null;
   [key: string]: unknown;
 }
 
