@@ -173,3 +173,35 @@ export type {
   WebhookDeliveryListResponse,
   WebhookTestResult,
 } from "./webhook";
+
+// BVL
+export type {
+  BVLHardGate,
+  BVLResult,
+  BVLRun,
+  BVLRunListResponse,
+  BVLSignal,
+  BVLStats,
+  CallQueueLead,
+  CallQueueResponse,
+} from "./bvl";
+
+// SAM Profiles
+export type {
+  SAMFetchRun,
+  SAMFetchRunListResponse,
+  SAMProfileWatcher,
+  SAMSearchProfile,
+  SAMSearchProfileListResponse,
+} from "./sam-profiles";
+
+// Reviews
+export type {
+  ReviewActionResponse,
+  ReviewCorrectionRequest,
+  ReviewDetailResponse,
+  ReviewListItem,
+  ReviewListResponse,
+  ReviewTransactionCorrection,
+  TransactionReviewItem,
+} from "./reviews";

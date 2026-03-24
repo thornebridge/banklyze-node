@@ -39,6 +39,9 @@ import { OnboardingResource } from "./resources/onboarding.js";
 import { CrmResource } from "./resources/crm.js";
 import { PushResource } from "./resources/push.js";
 import { OAuthResource } from "./resources/oauth.js";
+import { BVLResource } from "./resources/bvl.js";
+import { SAMProfilesResource } from "./resources/sam-profiles.js";
+import { ReviewsResource } from "./resources/reviews.js";
 
 export interface Logger {
   debug(...args: unknown[]): void;
@@ -105,6 +108,9 @@ export class Banklyze {
   crm: CrmResource;
   push: PushResource;
   oauth: OAuthResource;
+  bvl: BVLResource;
+  samProfiles: SAMProfilesResource;
+  reviews: ReviewsResource;
 
   constructor(options: BanklyzeOptions) {
     this._apiKey = options.apiKey;
@@ -138,6 +144,9 @@ export class Banklyze {
     this.crm = new CrmResource(this);
     this.push = new PushResource(this);
     this.oauth = new OAuthResource(this);
+    this.bvl = new BVLResource(this);
+    this.samProfiles = new SAMProfilesResource(this);
+    this.reviews = new ReviewsResource(this);
 
     // Sub-resources on deals
     this.deals.comments = new CommentsResource(this);
