@@ -4,10 +4,8 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://banklyze.com/icons/banklyze-mark-white.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://banklyze.com/icons/Banklyze-Logo.svg">
-  <img alt="Banklyze" src="https://banklyze.com/icons/Banklyze-Logo.svg" width="36">
-</picture>
-&nbsp;&nbsp;
-<samp><b>&nbsp;B &nbsp;A &nbsp;N &nbsp;K &nbsp;L &nbsp;Y &nbsp;Z &nbsp;E&nbsp;</b></samp>
+  <img alt="Banklyze" src="https://banklyze.com/icons/Banklyze-Logo.svg" width="32" align="middle">
+</picture>&nbsp;&nbsp;<samp><b>B A N K L Y Z E</b></samp>
 
 <br />
 <br />
